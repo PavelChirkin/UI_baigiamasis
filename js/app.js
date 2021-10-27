@@ -36,12 +36,23 @@ $(function() {
 
         let out='';
         products.forEach(function(item){
-                 out +='<div class="cart">';
-                 out +='<p class="name">'+ item.title +'</p>';
-                 out +='<img src="'+item.image+'" class="image-cart" alt="...">';
-                 out +='<div class="cost">'+ item.price+'</div>';
-                 out +='<button class="add-to-cart">Add to basket</button>';
+                 out +='<div class="col-md-8 products">';
+                 out +='<div class="row ">';
+                 out +='<div class="col-sm-4">';
+                 out +='<div class="product">';
+                 out +='<div class="product-img">';
+                 out +='<a href="#"><img src="'+item.image+'" class="product-img" alt="..."></a>';
                  out +='</div>';
+                 out +='<p class="product-title">'
+                 out +='<a href="#">'+ item.title +'</a></p>';
+                 out +='<p class="product-desc">'+ item.price+'</p>';
+                 out +='<p class="product-price">'+ item.price+'</p>';
+                 out +='<button type="button" class="btn btn-light rounded-circle" alt="..."><i class="fa-solid fa-cart-plus"></i></button>';
+                 out +='</div>';
+                 out +='</div>';
+                 out +='</div>';
+                 out +='</div>';
+
               /*  rows +='<tr>'+
                     '<td><img src="'+item.image+'" class="image-thumbnail" alt="..."></td>'+
                     '<td>'+ item.title +'</td>'+
