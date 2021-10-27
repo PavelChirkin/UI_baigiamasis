@@ -2,3 +2,16 @@
     width: 90px;
     height: auto;
 }
+.cart {
+    width: 250px;
+    height: 340px;
+    border: 1px solid black;
+    margin: 20px;
+    float: left;
+    text-align: center;
+    padding: 10px;
+}
+.image-cart {
+    height: 200px;
+    max-width: 200px;
+}
