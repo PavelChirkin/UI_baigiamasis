@@ -74,5 +74,9 @@ img {
     bottom: 5px;
     left: 5px;
     margin-left: 180px;
-
+}
+.footer-h500 {
+    background-color: black;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
