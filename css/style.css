@@ -20,16 +20,18 @@ body{
     background: #ececec;
 }
 img {
-    height: auto;
-    max-width: 100%;
+    height: 100px;
+    max-width: 90%;
 }
 .content{
     margin-top: 50px;
+
 }
 .product {
     background: #fff none repeat scroll 0 0;
     border: 1px solid #c0c0c0;
-    height: 390px;
+    height: 460px;
+    width: 300px;
     overflow: hidden;
     padding: 25px 15px;
     position: relative;
@@ -44,8 +46,10 @@ img {
     height: 200px;
 }
 .product-title a {
+    height: 100px;
     color: #000;
     font-weight: 500;
+    font-size: 14px;
     text-transform: uppercase;
 }
 .product-desc {
@@ -54,10 +58,21 @@ img {
 }
 .product-price {
     bottom: 15px;
-    left: 0;
-    position: absolute;
+    left: 15px;
+    position: initial;
     width: 100%;
     color: #d51e08;
-    font-size: 18px;
+    font-size: 14px;
+    text-align: left;
     font-weight: 500;
+    width: 100px;
+
+}
+.add-button {
+    text-align: right;
+    width: 50px;
+    bottom: 5px;
+    left: 5px;
+    margin-left: 180px;
+
 }

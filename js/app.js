@@ -11,6 +11,7 @@ $(function() {
     function successHandler(response) {
         products = response;
         fillDivs(response);
+       // console.log(response);
     }
 
     function errorHandler(response) {
@@ -36,22 +37,25 @@ $(function() {
 
         let out='';
         products.forEach(function(item){
-                 out +='<div class="col-md-8 products">';
-                 out +='<div class="row ">';
-                 out +='<div class="col-sm-4">';
+                 //out +='<div class="col-md-9">';
+                 //out +='<div class="row">';
+                 //out +='<div class="col-4 col-sm-6">';
+                 out +='<div class="col-md-4 d-md-inline-flex">';
                  out +='<div class="product">';
                  out +='<div class="product-img">';
                  out +='<a href="#"><img src="'+item.image+'" class="product-img" alt="..."></a>';
                  out +='</div>';
                  out +='<p class="product-title">'
                  out +='<a href="#">'+ item.title +'</a></p>';
-                 out +='<p class="product-desc">'+ item.price+'</p>';
-                 out +='<p class="product-price">'+ item.price+'</p>';
-                 out +='<button type="button" class="btn btn-light rounded-circle" alt="..."><i class="fa-solid fa-cart-plus"></i></button>';
+                 out +='<p class="product-desc">'+ item.category+'</p>';
+                 out +='<p class="product-price">$ '+ item.price+'</p>';
+                 out +='<div class="add-button">';
+                 out +='<button type="button" class="btn btn-outline-success rounded-circle" alt="..."><i class="fa-solid fa-cart-plus"></i></button>';
                  out +='</div>';
                  out +='</div>';
                  out +='</div>';
-                 out +='</div>';
+                 //out +='</div>';
+
 
               /*  rows +='<tr>'+
                     '<td><img src="'+item.image+'" class="image-thumbnail" alt="..."></td>'+
