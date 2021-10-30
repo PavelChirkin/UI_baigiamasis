@@ -1,6 +1,6 @@
 $(function() {
     let products = [];
-    var cart = {}; //card with chosen products
+    let cart = []; //card with chosen products
 
     loadCart();
     showMiniCart();
@@ -129,9 +129,9 @@ $(function() {
     }
 
     function loadCart() {
-        //проверяю есть ли в localStorage запись cart
+        //check cart existing in localStorage
         if (localStorage.getItem('cart')) {
-            // если есть - расширфровываю и записываю в переменную cart
+            // fulfilling cart
             cart = JSON.parse(localStorage.getItem('cart'));
             //showMiniCart();
             console.log(cart);
