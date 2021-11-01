@@ -46,27 +46,25 @@ $(function() {
             console.log(goods["0"]);
             //array.forEach(function(item){
             for (var item in cart) {
-                console.log(cart);
-                console.log(goods[item].title);
+                //console.log(cart);
+                //console.log(goods[item].title);
                 rows +='<tr>'+
                     '<td><img src="'+goods[item].image+'" class="image-thumbnail" alt="..."></td>'+
                     '<td>'+goods[item].title+'</td>'+
                     '<td>'+goods[item].category+'</td>'+
                     '<td>'+goods[item].description+'</td>'+
                     '<td class="qty-input">'+
-
                     '<div class="input-group mb-3">'+
                     '<button class="minus-goods" cart-id="'+item+'">-</button>'+
                     '<input type="text" class="form-control" placeholder="'+parseInt(cart[item])+'">'+
-                    '<button class="add-goods" cart-id="'+item+'">+</button>'+
+                    '<button class="plus-goods" cart-id="'+item+'">+</button>'+
                     '</div>'+
                     '</td>'+
                     '<td>'+ goods[item].price*cart[item] +'</td>'+
                     '</tr>'
             }
             $('table tbody').html(rows);
-            //$('.plus-goods').on('click', plusGoods);
-            //$('.minus-goods').on('click', minusGoods);
+
         } else {
 
         }
@@ -86,12 +84,12 @@ $(function() {
         saveCart();
         fillCartTable(goods);
 
-        console.log(cart);
+        //console.log(cart);
         localStorage.setItem('cart', JSON.stringify(cart));
 
     });
 
-    $(document).on('click', '.add-goods"', function(){
+    $(document).on('click', '.plus-goods', function(){
         const cartId = parseInt($(this).attr('cart-id'));
         console.log(cartId);
         //increase goods quantity
@@ -100,7 +98,7 @@ $(function() {
         saveCart();
         fillCartTable(goods);
 
-        //console.log(cart);
+        console.log(cart);
         localStorage.setItem('cart', JSON.stringify(cart));
     });
 
