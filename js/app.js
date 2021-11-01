@@ -79,17 +79,14 @@ $(function() {
 
     $(document).on('click', '.add-to-cart', function(){
         const productId = parseInt($(this).attr('product-id'));
-        //const number = 0;
-        //const index = cart.findIndex(product => product.id === productId);
-        //reservations.splice(index, 1);
         console.log(productId);
 
         if (cart[productId]===undefined) {
             //cart[productId] = productId;
-            cart[productId] = 1;//если в корзине нет товара - делаем равным 1
+            cart[productId] = 1;
         }
         else {
-            cart[productId]++; //если такой товар есть - увеличиваю на единицу
+            cart[productId]++;
         }
         showMiniCart();
         console.log(cart);

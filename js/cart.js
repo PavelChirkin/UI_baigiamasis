@@ -1,5 +1,5 @@
 $(function() {
-    var products = [];
+    var goods = [];
     var cart = []; //card with chosen products
 
     $.ajax({
@@ -10,9 +10,9 @@ $(function() {
     });
 
     function successHandler(response) {
-        products = response;
-        console.log(products);
-        fillCartTable(products);
+        goods = response;
+        console.log(goods);
+        fillCartTable(goods);
     }
 
     function errorHandler(response) {
@@ -31,36 +31,82 @@ $(function() {
         }
     }
 
-
-
-    console.log(products);
-    console.log(cart);
-    console.log(products["1"]);
+    function isEmpty(object) {
+        for (var key in object)
+            if (object.hasOwnProperty(key)) return true;
+        return false;
+    }
 
     function fillCartTable(array) {
-        if(array.length > 0) {
-            $('#table').removeClass('invisible');
+        //console.log(array.length);
+        console.log(cart);
+        if(isEmpty(cart)) {
+           // $('#table').removeClass('invisible');
             let rows = '';
-            array.forEach(function(item){
+            console.log(goods["0"]);
+            //array.forEach(function(item){
+            for (var item in cart) {
                 console.log(cart);
+                console.log(goods[item].title);
                 rows +='<tr>'+
-                    '<td><img src="${products[id].img}" class="image-thumbnail" alt="..."></td>'+
-                    '<td>'+products[item].title+'</td>'+
-                    '<td>'+products[item].category+'</td>'+
-                    '<td>'+products[item].description+'</td>'+
+                    '<td><img src="'+goods[item].image+'" class="image-thumbnail" alt="..."></td>'+
+                    '<td>'+goods[item].title+'</td>'+
+                    '<td>'+goods[item].category+'</td>'+
+                    '<td>'+goods[item].description+'</td>'+
                     '<td class="qty-input">'+
+
                     '<div class="input-group mb-3">'+
-                    '<span class="input-group-text">-</span>'+
-                    '<input type="text" class="form-control">'+
-                    '<span class="input-group-text">+</span>'+
+                    '<button class="minus-goods" cart-id="'+item+'">-</button>'+
+                    '<input type="text" class="form-control" placeholder="'+parseInt(cart[item])+'">'+
+                    '<button class="add-goods" cart-id="'+item+'">+</button>'+
                     '</div>'+
                     '</td>'+
-                    '<td>'+ products[item].price +'</td>'+
+                    '<td>'+ goods[item].price*cart[item] +'</td>'+
                     '</tr>'
-            });
+            }
             $('table tbody').html(rows);
+            //$('.plus-goods').on('click', plusGoods);
+            //$('.minus-goods').on('click', minusGoods);
         } else {
 
         }
+    }
+
+    $(document).on('click', '.minus-goods', function(){
+        const cartId = parseInt($(this).attr('cart-id'));
+        console.log(cartId);
+        //reduce goods quantity
+
+        if (cart[cartId]===1) {
+            delete cart[cartId];
+        }
+        else {
+            cart[cartId]--;
+        }
+        saveCart();
+        fillCartTable(goods);
+
+        console.log(cart);
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+    });
+
+    $(document).on('click', '.add-goods"', function(){
+        const cartId = parseInt($(this).attr('cart-id'));
+        console.log(cartId);
+        //increase goods quantity
+
+        cart[cartId]++;
+        saveCart();
+        fillCartTable(goods);
+
+        //console.log(cart);
+        localStorage.setItem('cart', JSON.stringify(cart));
+    });
+
+
+    function saveCart() {
+        //save cart in localStorage
+        localStorage.setItem('cart', JSON.stringify(cart)); //cart to local storage
     }
 });
