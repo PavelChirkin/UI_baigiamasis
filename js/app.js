@@ -38,9 +38,6 @@ $(function() {
 
         let out='';
         products.forEach(function(item){
-                 //out +='<div class="col-md-9">';
-                 //out +='<div class="row">';
-                 //out +='<div class="col-4 col-sm-6">';
                  out +='<div class="col-md-4 d-md-inline-flex">';
                  out +='<div class="product">';
                  out +='<div class="product-img">';
@@ -55,23 +52,7 @@ $(function() {
                  out +='</div>';
                  out +='</div>';
                  out +='</div>';
-                 //out +='</div>';
 
-
-              /*  rows +='<tr>'+
-                    '<td><img src="'+item.image+'" class="image-thumbnail" alt="..."></td>'+
-                    '<td>'+ item.title +'</td>'+
-                    '<td>'+ item.category +'</td>'+
-                    '<td>'+ item.description +'</td>'+
-                    '<td class="qty-input">'+
-                    '<div class="input-group mb-3">'+
-                    '<span class="input-group-text">-</span>'+
-                    '<input type="text" class="form-control">'+
-                    '<span class="input-group-text">+</span>'+
-                    '</div>'+
-                    '</td>'+
-                    '<td>'+ item.price +'</td>'+
-                    '</tr>' */
             });
         $('#goods').html(out);
         //$('button.add-to-cart').on('click', addToCart());
@@ -94,22 +75,7 @@ $(function() {
 
     });
 
-    /*function addToCart() {
-        //добавляем товар в корзину
-        console.log('data-art');
 
-        let id = $(this).attr('data-art');
-         console.log(id);
-        if (cart[id]===undefined) {
-            cart[id] = 1; //если в корзине нет товара - делаем равным 1
-        }
-        else {
-            cart[id]++; //если такой товар есть - увеличиваю на единицу
-        }
-        //showMiniCart();
-        console.log(cart);
-        //saveCart();
-    } */
 
     function saveCart() {
         //сохраняю корзину в localStorage
