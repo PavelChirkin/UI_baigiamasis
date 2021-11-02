@@ -48,7 +48,7 @@ $(function() {
             for (var item in cart) {
                 //console.log(cart);
                 total = total + products[item].price*cart[item];
-                totalString = "$" + total.toString();
+                totalString = "$" + (Math.round(total*100)/100).toString();
                 //console.log(products[item].title);
                 rows +='<tr>'+
                     '<td><img src="'+products[item].image+'" class="image-thumbnail" alt="..."></td>'+
@@ -62,7 +62,7 @@ $(function() {
                     '<button class="plus-products" cart-id="'+item+'">+</button>'+
                     '</div>'+
                     '</td>'+
-                    '<td>'+"$"+ products[item].price*cart[item] +'</td>'+
+                    '<td>'+"$"+ Math.round(products[item].price*cart[item]*100)/100 +'</td>'+
                     '</tr>'
             }
             $('table tbody').html(rows);
